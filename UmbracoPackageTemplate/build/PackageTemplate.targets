@@ -1,0 +1,23 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <PackageTemplateContentFilesPath>$(MSBuildThisFileDirectory)..\App_Plugins\UmbracoPackageTemplate\**\*.*</PackageTemplateContentFilesPath>
+    </PropertyGroup>
+
+    <Target Name="CopyPackageTemplateAssets" BeforeTargets="Build">
+        <ItemGroup>
+            <PackageTemplateContentFiles Include="$(PackageTemplateContentFilesPath)" />
+        </ItemGroup>
+        <Message Text="Copying UmbracoPackageTemplate files: $(PackageTemplateContentFilesPath) - #@(PackageTemplateContentFiles->Count()) files"  Importance="high" />
+        <Copy SourceFiles="@(PackageTemplateContentFiles)" DestinationFiles="@(PackageTemplateContentFiles->'$(MSBuildProjectDirectory)\App_Plugins\UmbracoPackageTemplate\%(RecursiveDir)%(Filename)%(Extension)')" SkipUnchangedFiles="true" />
+    </Target>
+
+    <Target Name="ClearPackageTemplateAssets" BeforeTargets="Clean">
+        <ItemGroup>
+            <PackageTemplateDir Include="$(MSBuildProjectDirectory)\App_Plugins\UmbracoPackageTemplate\" />
+        </ItemGroup>
+        <Message Text="Clear old UmbracoPackageTemplate data"  Importance="high" />
+        <RemoveDir Directories="@(PackageTemplateDir)"  />
+    </Target>
+
+</Project>

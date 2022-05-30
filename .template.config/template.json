@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Sean Thorne",
+  "classifications": [
+    ".net5",
+    "Solution",
+    "Umbraco Package"
+  ],
+  "identity": "Our.Umbraco.PackageTemplate",
+  "name": "A Package Template",
+  "sourceName": "UmbracoPackageTemplate",
+  "preferNameDirectory": true,
+  "shortName": "umbpackage",
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".git/**",
+            ".vs/**",
+            ".idea/**",
+            ".vscode/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "tags": {
+    "language": "c#",
+    "framework": "aspnetcore",
+    "type": "solution"
+  }
+}
