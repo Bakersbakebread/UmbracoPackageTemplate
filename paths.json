@@ -3,7 +3,7 @@
       "UmbracoPackageTemplate/App_Plugins"
     ],
     "destinations" : [
-      "UmbracoPackageTemplate/App_Plugins"
+      "UmbracoPackageTemplate.Site/App_Plugins"
     ]
 }
   
